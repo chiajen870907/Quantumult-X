@@ -18,7 +18,7 @@ $task.fetch(shopeeUrl).then(response => {
             $done();
         }
         else if (!obj["data"]["success"]) {
-            $notify("🍤 蝦皮 簽到失敗!", "", "已經簽到過了");
+            $notify("🍤 今日已簽到過", "", "每日只能簽到一次‼️");
             $done();
         }
         $done();

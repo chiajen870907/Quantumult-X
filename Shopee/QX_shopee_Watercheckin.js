@@ -7,14 +7,16 @@ const shopeewUrl = {
       'X-CSRFToken':$prefs.valueForKey("CSRFTokenSP"),
       "Content-Type": "application/json",
     },
+    body:JSON.stringify({
+        actionKey : "act_Check_In",
+    })
+    
     // body: { actionKey: "act_Check_In" },
 };
 
 $task.fetch(shopeewUrl).then(response => {
-    console.log(response.statusCode)
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
-        console.log(obj)
         if (obj["msg"] == "success") {
             $notify("🍤 蝦皮果園", "", "水滴任務打卡成功 ✅");
             $done();
