@@ -17,7 +17,7 @@ $task.fetch(shopeeUrl).then(response => {
             $notify("蝦皮 " + user + " 已連續簽到 " + checkinday + " 天", "", "今日已領取 " + coins + "💰💰💰");
             $done();
         }else if (!obj["data"]["success"]) {
-            $notify("看來今天已經簽到過了!");
+            $notify("看來今天已經簽到過了!","", "請明天再嘗試!");
             $done();
         }
     } else {
