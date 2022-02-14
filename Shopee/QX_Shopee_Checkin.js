@@ -20,6 +20,7 @@ $task.fetch(shopeeUrl).then(response => {
             $notify("看來今天已經簽到過了!","", "請明天再嘗試!");
             $done();
         }
+        $done();
     } else {
         $notify("🍤 蝦皮 Cookie 已過期或網路錯誤‼️", "", "請重新更新 Cookie 重試 🔓");
         $done();
