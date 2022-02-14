@@ -11,9 +11,10 @@ const shopeewUrl = {
 };
 
 $task.fetch(shopeewUrl).then(response => {
+    console.log(response.statusCode)
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
-
+        console.log(obj)
         if (obj["msg"] == "success") {
             $notify("🍤 蝦皮果園", "", "水滴任務打卡成功 ✅");
             $done();
@@ -22,6 +23,7 @@ $task.fetch(shopeewUrl).then(response => {
             $done();
         }else{
             $notify("🍤 蝦皮果園水滴任務錯誤", "", "錯誤訊息" + obj["msg"])
+            $done();
         }
         $done();
     } else {

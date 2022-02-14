@@ -13,7 +13,7 @@ var shopeeluckydrawUrl = {
       },
 };
 
-$task.fetch(shopeeUrl).then(response => {
+$task.fetch(shopeeluckydrawUrl).then(response => {
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
         
