@@ -4,6 +4,7 @@ var shopeeluckydrawUrl = {
     headers: {
         'Cookie': $prefs.valueForKey("CookieSP") + ';SPC_EC=' + $prefs.valueForKey("SPC_EC") + ';',
         'X-CSRFToken': $prefs.valueForKey("CSRFTokenSP"),
+        "Content-Type": "application/json",
     },
     body: {
         request_id: (Math.random() * 10 ** 20).toFixed(0).substring(0, 16),
