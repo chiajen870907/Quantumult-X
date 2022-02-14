@@ -8,15 +8,13 @@ var shopeeluckydrawUrl = {
         'X-CSRFToken': $prefs.valueForKey("CSRFTokenSP"),
         "Content-Type": "application/json",
     },
-    body: {
-        "request_id": request_value,
-        "app_id": "E9VFyxwmtgjnCR8uhL",
-        "activity_code": "e37b7dec5976a29c",
-        "source": 0,
-      },
+    body:JSON.stringify({
+        request_id : request_value,
+        app_id : "E9VFyxwmtgjnCR8uhL",
+        activity_code : "e37b7dec5976a29c",
+        source : 0,
+    })
 };
-console.log(shopeeluckydrawUrl)
-
 $task.fetch(shopeeluckydrawUrl).then(response => {
     console.log(response.statusCode);
     console.log(JSON.parse(response.body));
