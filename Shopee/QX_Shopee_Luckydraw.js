@@ -9,12 +9,13 @@ var shopeeluckydrawUrl = {
         "Content-Type": "application/json",
     },
     body: {
-        request_id: request_value,
-        app_id: "E9VFyxwmtgjnCR8uhL",
-        activity_code: "e37b7dec5976a29c",
-        source: 0,
+        "request_id": request_value,
+        "app_id": "E9VFyxwmtgjnCR8uhL",
+        "activity_code": "e37b7dec5976a29c",
+        "source": 0,
       },
 };
+console.log(shopeeluckydrawUrl)
 
 $task.fetch(shopeeluckydrawUrl).then(response => {
     console.log(response.statusCode);
