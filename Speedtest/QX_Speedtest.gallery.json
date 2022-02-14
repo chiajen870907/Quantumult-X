@@ -2,8 +2,6 @@
     "name": "Speedtest",
     "description": "每5分鐘騙你我在測速",
     "task": [
-		"0 6 * * 1,3,5 https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/QX_Shopee_Update_Cookie.js, tag=自動取得🍪, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
-
-
+        "/5 20-23,0-2 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Speedtest/QX_Speedtest.js, tag=自動獲取IOS Config, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Speedtest/logo.png",
     ]
   }
