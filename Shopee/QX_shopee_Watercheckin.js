@@ -1,5 +1,5 @@
 const now = new Date().getTime();
-
+console.log(now);
 const shopeewUrl = {
     url: "https://games.shopee.tw/farm/api/task/action?t=" + now,
     headers: {
@@ -10,11 +10,10 @@ const shopeewUrl = {
     body:JSON.stringify({
         actionKey : "act_Check_In",
     })
-    
-    // body: { actionKey: "act_Check_In" },
 };
 
 $task.fetch(shopeewUrl).then(response => {
+    console.log(response.statusCode);
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
         if (obj["msg"] == "success") {
@@ -33,7 +32,6 @@ $task.fetch(shopeewUrl).then(response => {
         $done();
     }
 }, reason => {
-    
     $notify("🍤 蝦皮果園水滴任務打卡", "", "連線錯誤‼️");
     $done();
 });
