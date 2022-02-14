@@ -17,8 +17,11 @@ var shopeeluckydrawUrl = {
 
 $task.fetch(shopeeluckydrawUrl).then(response => {
     console.log(request_value);
+    console.log(response.statusCode);
+
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
+        console.log(obj["msg"]);
         if(obj["msg"] == "no chance"){
             $notify("🍤 今日已領過蝦幣寶箱", "", "每日只能領一次‼️");
             $done();
