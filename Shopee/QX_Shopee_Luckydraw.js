@@ -1,4 +1,5 @@
 var request_value = (Math.random() * 10 ** 20).toFixed(0).substring(0, 16);
+
 var shopeeluckydrawUrl = {
     url: 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/a3267155f3ec89c2',
     method: "POST",
@@ -16,9 +17,9 @@ var shopeeluckydrawUrl = {
 };
 
 $task.fetch(shopeeluckydrawUrl).then(response => {
-    console.log(request_value);
     console.log(response.statusCode);
-    console.log(response)
+    console.log(JSON.parse(response.body));
+    console.log(request_value);
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
         console.log(obj["msg"]);
