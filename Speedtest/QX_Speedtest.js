@@ -3,5 +3,5 @@ var speedtestUrl = {
     method: "GET",
 };
 
-$task.fetch(speedtestUrl){$done();}
+$done($task.fetch(speedtestUrl));
 
