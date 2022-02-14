@@ -8,7 +8,7 @@ const shopeeUrl = {
 };
 
 $task.fetch(shopeeUrl).then(response => {
-    console.log(esponse.statusCode);
+    console.log(response.statusCode);
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
         console.log(obj);
