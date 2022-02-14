@@ -1,3 +1,4 @@
+var request_value = (Math.random() * 10 ** 20).toFixed(0).substring(0, 16);
 var shopeeluckydrawUrl = {
     url: 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/a3267155f3ec89c2',
     method: "POST",
@@ -7,7 +8,7 @@ var shopeeluckydrawUrl = {
         "Content-Type": "application/json",
     },
     body: {
-        request_id: (Math.random() * 10 ** 20).toFixed(0).substring(0, 16),
+        request_id: request_value,
         app_id: "E9VFyxwmtgjnCR8uhL",
         activity_code: "e37b7dec5976a29c",
         source: 0,
@@ -15,9 +16,9 @@ var shopeeluckydrawUrl = {
 };
 
 $task.fetch(shopeeluckydrawUrl).then(response => {
+    console.log(request_value);
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
-        
         if(obj["msg"] == "no chance"){
             $notify("🍤 今日已領過蝦幣寶箱", "", "每日只能領一次‼️");
             $done();
