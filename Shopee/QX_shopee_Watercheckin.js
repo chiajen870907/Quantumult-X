@@ -1,7 +1,9 @@
 const now = new Date().getTime();
 console.log("https://games.shopee.tw/farm/api/task/action?t=" + now);
+
 const shopeewUrl = {
     url: "https://games.shopee.tw/farm/api/task/action?t=" + now,
+    method: "POST",
     headers: {
       'Cookie': $prefs.valueForKey("CookieSP") + ';SPC_EC=' + $prefs.valueForKey("SPC_EC") + ';',
       'X-CSRFToken':$prefs.valueForKey("CSRFTokenSP"),
