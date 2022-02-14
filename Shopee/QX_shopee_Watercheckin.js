@@ -7,7 +7,7 @@ const shopeewUrl = {
       'X-CSRFToken':$prefs.valueForKey("CSRFTokenSP"),
       "Content-Type": "application/json",
     },
-    body: { actionKey: "act_Check_In" },
+    // body: { actionKey: "act_Check_In" },
 };
 
 $task.fetch(shopeewUrl).then(response => {
