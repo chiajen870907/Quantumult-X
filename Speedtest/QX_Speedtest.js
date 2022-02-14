@@ -1,4 +1,4 @@
-const speedtestUrl = {
+var speedtestUrl = {
     url: 'https://www.speedtest.net/api/ios-config.php',
     method: "GET",
 };
@@ -6,4 +6,7 @@ const speedtestUrl = {
 $task.fetch(speedtestUrl).then(response => {
 	console.log(JSON.stringify(response));
 	$done();
-}
+}, reason => {
+    $done();
+});
+
