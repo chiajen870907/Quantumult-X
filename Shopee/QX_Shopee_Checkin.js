@@ -11,6 +11,8 @@ $task.fetch(shopeeUrl).then(response => {
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
         console.log(obj["data"]["success"]);
+        console.log(obj["data"]["username"]);
+        console.log(obj["data"]["increase_coins"]);
         if (obj["data"]["success"]) {
             var user = obj["data"]["username"];
             var coins = obj["data"]["increase_coins"];
@@ -18,7 +20,7 @@ $task.fetch(shopeeUrl).then(response => {
             $notify("蝦皮 " + user + " 已連續簽到 " + checkinday + " 天", "", "今日已領取 " + coins + "💰💰💰");
             $done();
         }
-        else if (obj["data"]["success"] == "false") {
+        else if (!obj["data"]["success"]) {
             $notify("🍤 蝦皮 簽到失敗!", "", "已經簽到過了");
             $done();
         }
