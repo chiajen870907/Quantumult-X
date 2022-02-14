@@ -14,6 +14,7 @@ const shopeewUrl = {
 
 $task.fetch(shopeewUrl).then(response => {
     console.log(JSON.stringify(response.body));
+    console.log(JSON.stringify(response));
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
         if (obj["msg"] == "success") {
