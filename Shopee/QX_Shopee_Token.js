@@ -3,6 +3,7 @@ if ($request.headers['Cookie']) {
     var cookie = $prefs.setValueForKey(shopee_token, "ShopeeToken");
     if (!cookie) {
         $notify("🍤 蝦皮 Token 保存錯誤‼️", "", "請重新登入")
+        
     } else {
         $notify("🍤 蝦皮 Token 保存成功🎉", "", "")
     }
