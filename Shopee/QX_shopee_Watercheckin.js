@@ -1,5 +1,5 @@
 const now = new Date().getTime();
-console.log(now);
+console.log("https://games.shopee.tw/farm/api/task/action?t=" + now);
 const shopeewUrl = {
     url: "https://games.shopee.tw/farm/api/task/action?t=" + now,
     headers: {
