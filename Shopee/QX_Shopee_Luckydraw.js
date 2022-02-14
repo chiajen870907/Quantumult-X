@@ -18,7 +18,7 @@ var shopeeluckydrawUrl = {
 $task.fetch(shopeeluckydrawUrl).then(response => {
     console.log(request_value);
     console.log(response.statusCode);
-
+    console.log(response)
     if (response.statusCode == 200) {
         let obj = JSON.parse(response.body);
         console.log(obj["msg"]);
