@@ -3,10 +3,5 @@ var speedtestUrl = {
     method: "GET",
 };
 
-$task.fetch(speedtestUrl).then(response => {
-	console.log(JSON.stringify(response));
-	$done();
-}, reason => {
-    $done();
-});
+$task.fetch(speedtestUrl){$done();}
 
