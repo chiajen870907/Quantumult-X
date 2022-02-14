@@ -1,0 +1,11 @@
+{
+    "name": "Shopee",
+    "description": "蝦皮每日任務",
+    "task": [
+        "0 6 * * 1,3,5 https://beeeeemo.dev/QX/scripts/shopee_update_cookie.js, tag=自動取得🍪, enabled=false",
+        "0 8 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/QX_Shopee_Checkin.js, tag=簽到📝, enabled=false",
+        "0 8 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/QX_Shopee_Luckydraw.js, tag=抽寶箱💍, enabled=false",
+        "5 */11 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/QX_shopee_Watercheckin.js, tag=水滴任務💧, enabled=false"
+        
+    ]
+  }
