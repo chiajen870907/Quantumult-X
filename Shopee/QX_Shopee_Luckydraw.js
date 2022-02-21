@@ -30,6 +30,7 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 		const obj = JSON.parse(data);
             if (obj['msg'] !== 'success') {
                 $notify('🍤 蝦幣寶箱網址查詢', '', '未知錯誤，請稍候再手動嘗試‼️');
+				$done();
             } else {
                 const eventUrl = obj['data']['basic']['event_code'];
                 luckyRrawRequest.url = 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/' + eventUrl;
@@ -62,6 +63,7 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 			}
 	}else{
 		$notify('🍤 蝦皮 Cookie 已過期‼️', '', '請重新抓取 🔓');
+		$done();
 		
 	}
 }, reason => {
