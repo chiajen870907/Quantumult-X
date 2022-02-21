@@ -29,7 +29,7 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
     if (response.statusCode == 200) {
 		const obj = JSON.parse(data);
             if (obj['msg'] !== 'success') {
-                $notification.post('🍤 蝦幣寶箱網址查詢', '', '未知錯誤，請稍候再手動嘗試‼️');
+                $notify('🍤 蝦幣寶箱網址查詢', '', '未知錯誤，請稍候再手動嘗試‼️');
             } else {
                 const eventUrl = obj['data']['basic']['event_code'];
                 luckyRrawRequest.url = 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/' + eventUrl;
