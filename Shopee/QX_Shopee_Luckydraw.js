@@ -14,12 +14,13 @@ let luckyRrawRequest = {
         'Cookie': $persistentStore.read('CookieSP') + ';SPC_EC=' + $persistentStore.read('SPC_EC') + ';',
         'X-CSRFToken': $persistentStore.read('CSRFTokenSP'),
     },
-    body: {
+	body:JSON.stringify({
         request_id: (Math.random() * 10 ** 20).toFixed(0).substring(0, 16),
-        app_id: 'E9VFyxwmtgjnCR8uhL',
+		app_id: 'E9VFyxwmtgjnCR8uhL',
         activity_code: 'e37b7dec5976a29c',
         source: 0,
-    },
+    }),
+
 };
 
 
