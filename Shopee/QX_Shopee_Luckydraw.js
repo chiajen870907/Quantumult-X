@@ -55,11 +55,15 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 						$done();
 					}
 				}, reason => {
-					$notify('🍤 蝦幣寶箱', '', '連線錯誤‼️'))
+					$notify('🍤 蝦幣寶箱', '', '連線錯誤‼️'));
 					$done();
 				});
 				
 			}
+	}else{
+		$notify('🍤 蝦皮 Cookie 已過期‼️', '', '請重新抓取 🔓');
+		
+	}
 }, reason => {
     $notify("🍤 蝦幣寶箱網址查詢", "", "連線錯誤‼️")
     $done();
