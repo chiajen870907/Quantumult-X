@@ -1,3 +1,4 @@
+console.log("flag");
 const luckyRrawGetIdRequest = {
     url: 'https://games.shopee.tw/gameplatform/api/v1/game/activity/e37b7dec5976a29c/settings?appid=E9VFyxwmtgjnCR8uhL&basic=false',
     method: "GET",
@@ -6,7 +7,7 @@ const luckyRrawGetIdRequest = {
         'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
     },
 };
-
+console.log("flag1");
 let luckyRrawRequest = {
     url: 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/15d3b075799e64b2',
 	method: "POST",
@@ -22,11 +23,11 @@ let luckyRrawRequest = {
     }),
 
 };
-
-
+console.log("flag2");
 
 
 $task.fetch(luckyRrawGetIdRequest).then(response => {
+	console.log(response);
 	if (response.status == 200) {
 		const obj = JSON.parse(data);
 		if (obj['msg'] !== 'success') {
