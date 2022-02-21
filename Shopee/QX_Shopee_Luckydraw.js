@@ -2,8 +2,8 @@ const luckyRrawGetIdRequest = {
     url: 'https://games.shopee.tw/gameplatform/api/v1/game/activity/e37b7dec5976a29c/settings?appid=E9VFyxwmtgjnCR8uhL&basic=false',
     method: "GET",
 	headers: {
-        'Cookie': $persistentStore.read('CookieSP') + ';SPC_EC=' + $persistentStore.read('SPC_EC') + ';',
-        'X-CSRFToken': $persistentStore.read('CSRFTokenSP'),
+        'Cookie': $prefs.valueForKey('CookieSP') + ';SPC_EC=' + $prefs.valueForKey('SPC_EC') + ';',
+        'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
     },
 };
 
@@ -11,8 +11,8 @@ let luckyRrawRequest = {
     url: 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/15d3b075799e64b2',
 	method: "POST",
     headers: {
-        'Cookie': $persistentStore.read('CookieSP') + ';SPC_EC=' + $persistentStore.read('SPC_EC') + ';',
-        'X-CSRFToken': $persistentStore.read('CSRFTokenSP'),
+        'Cookie': $prefs.valueForKey('CookieSP') + ';SPC_EC=' + $prefs.valueForKey('SPC_EC') + ';',
+        'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
     },
 	body:JSON.stringify({
         request_id: (Math.random() * 10 ** 20).toFixed(0).substring(0, 16),
