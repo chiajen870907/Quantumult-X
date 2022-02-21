@@ -5,7 +5,7 @@ const luckyRrawGetIdRequest = {
         'Cookie': $persistentStore.read('CookieSP') + ';SPC_EC=' + $persistentStore.read('SPC_EC') + ';',
         'X-CSRFToken': $persistentStore.read('CSRFTokenSP'),
     },
-}
+};
 
 let luckyRrawRequest = {
     url: 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/15d3b075799e64b2',
