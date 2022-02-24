@@ -40,10 +40,6 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 			$task.fetch(luckyRrawRequest).then(response => {
 				console.log(JSON.stringify(response));
 				if (response.statusCode == 200) {
-					// const obj = JSON.parse(response.body);
-					// console.log(JSON.stringify(luckyRrawRequest));
-					// console.log(obj['msg']);
-					// console.log(obj['data']['package_name']);
 					if (obj['msg'] == 'no chance') {
 						$notify('🍤 今日已領過蝦幣寶箱', '', '每日只能領一次‼️');
 						$done();
@@ -53,6 +49,9 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 						$done();
 					} else if (obj['msg'] == 'expired' || obj['msg'] == 'event already end') {
 						$notify('🍤 蝦幣寶箱活動已過期 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
+						$done();
+					}else{
+						$notify('🍤 未知錯誤 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
 						$done();
 					}
 				}else {
