@@ -30,7 +30,9 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 
 	if (response.statusCode == 200) {
 		const obj = JSON.parse(data);
-		//console.log(obj);
+		console.log(obj['msg']);
+		console.log(obj['data']['basic']['event_code']);
+		console.log(luckyRrawRequest.url);
 		if (obj['msg'] !== 'success') {
 			$notify('🍤 蝦幣寶箱網址查詢', '', '未知錯誤，請稍候再手動嘗試‼️');
 			$done();
