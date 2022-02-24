@@ -41,7 +41,8 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 				console.log(response2.statusCode);
 				if (response2.statusCode == 200) {
 					const obj2 = JSON.parse(response2.body);
-					console.log(obj2);
+					console.log(obj2['msg']);
+					console.log(obj2['data']['package_name']]);
 					if (obj2['msg'] == 'no chance') {
 						$notify('🍤 今日已領過蝦幣寶箱', '', '每日只能領一次‼️');
 						$done();
