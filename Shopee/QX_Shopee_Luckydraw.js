@@ -25,7 +25,7 @@ let luckyRrawRequest = {
 
 
 $task.fetch(luckyRrawGetIdRequest).then(response => {
-	console.log(JSON.stringify(response));
+	//console.log(JSON.stringify(response));
 	console.log(response.statusCode);
 
 	if (response.statusCode == 200) {
