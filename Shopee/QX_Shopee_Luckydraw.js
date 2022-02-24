@@ -26,8 +26,11 @@ let luckyRrawRequest = {
 
 $task.fetch(luckyRrawGetIdRequest).then(response => {
 	console.log(JSON.stringify(response));
+	console.log(response.statusCode);
+
 	if (response.statusCode == 200) {
 		const obj = JSON.parse(data);
+		console.log(obj);
 		if (obj['msg'] !== 'success') {
 			$notify('🍤 蝦幣寶箱網址查詢', '', '未知錯誤，請稍候再手動嘗試‼️');
 			$done();
@@ -36,7 +39,7 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 			luckyRrawRequest.url = 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/' + eventUrl;
 			console.log('🍤 蝦幣寶箱新網址獲取成功： ' + luckyRrawRequest.url);
 			// 開寶箱
-			$task.fetch(luckyRrawGetIdRequest).then(response => {
+			$task.fetch(luckyRrawRequest).then(response => {
 				if (response.statusCode == 200) {
 					const obj = JSON.parse(data);
 					if (obj['msg'] == 'no chance') {
