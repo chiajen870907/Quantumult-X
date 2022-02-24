@@ -21,12 +21,11 @@ let luckyRrawRequest = {
         activity_code: 'e37b7dec5976a29c',
         source: 0,
     }),
-
 };
 
 
 $task.fetch(luckyRrawGetIdRequest).then(response => {
-	console.log(response.json());
+	console.log(JSON.stringify(response));
 	if (response.statusCode == 200) {
 		const obj = JSON.parse(data);
 		if (obj['msg'] !== 'success') {
