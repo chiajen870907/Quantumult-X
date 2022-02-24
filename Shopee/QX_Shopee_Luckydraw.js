@@ -40,7 +40,9 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 			$task.fetch(luckyRrawRequest).then(response => {
 				console.log(response.statusCode);
 				if (response.statusCode == 200) {
+
 					const obj = JSON.parse(response.body);
+					console.log(JSON.stringify(luckyRrawRequest));
 					console.log(obj['msg']);
 					console.log(obj['data']['package_name']);
 					if (obj['msg'] == 'no chance') {
