@@ -24,7 +24,6 @@ let luckyRrawRequest = {
 
 };
 console.log("flag2");
-
 $task.fetch(luckyRrawGetIdRequest).then(response => {
 	console.log(response);
 	if (response.statusCode == 200) {
