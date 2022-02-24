@@ -37,20 +37,20 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 			console.log('🍤 蝦幣寶箱新網址獲取成功： ' + luckyRrawRequest.url);
 			
 			// 開寶箱
-			$task.fetch(luckyRrawRequest).then(response2 => {
-				console.log(response2.statusCode);
-				if (response2.statusCode == 200) {
-					const obj2 = JSON.parse(response2.body);
-					console.log(obj2['msg']);
-					console.log(obj2['data']['package_name']]);
-					if (obj2['msg'] == 'no chance') {
+			$task.fetch(luckyRrawRequest).then(response => {
+				console.log(response.statusCode);
+				if (response.statusCode == 200) {
+					const obj = JSON.parse(response.body);
+					console.log(obj['msg']);
+					console.log(obj['data']['package_name']);
+					if (obj['msg'] == 'no chance') {
 						$notify('🍤 今日已領過蝦幣寶箱', '', '每日只能領一次‼️');
 						$done();
-					} else if (obj2['msg'] == 'success') {
-						const packagename = obj2['data']['package_name'];
+					} else if (obj['msg'] == 'success') {
+						const packagename = obj['data']['package_name'];
 						$notify('🍤 蝦幣寶箱領取成功 ✅', '', '獲得 👉 ' + packagename + ' 💎');
 						$done();
-					} else if (obj2['msg'] == 'expired' || obj2['msg'] == 'event already end') {
+					} else if (obj['msg'] == 'expired' || obj['msg'] == 'event already end') {
 						$notify('🍤 蝦幣寶箱活動已過期 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
 						$done();
 					}
