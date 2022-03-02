@@ -76,32 +76,33 @@ function luckyDrawGetId() {
 
 function luckyDraw() {
 	console.log("luckyDraw()");
-	console.log(luckyRrawRequest);
+	console.log(JSON.stringify(luckyRrawRequest));
+
 	$task.fetch(luckyRrawRequest).then(response => {
 		console.log("*****************************************************")
 		console.log(response.statusCode);
-		if (response.statusCode === 200) {
-			const obj = JSON.parse(response.body);
-			console.log(obj);
-			if (obj['msg'] == 'no chance') {
-				$notify('🍤 今日已領過蝦幣寶箱', '', '每日只能領一次‼️');
-				$done();
-			} else if (obj['msg'] == 'success') {
-				const packagename = obj['data']['package_name'];
-				$notify('🍤 蝦幣寶箱領取成功 ✅', '', '獲得 👉 ' + packagename + ' 💎');
-				$done();
-			} else if (obj['msg'] == 'expired' || obj['msg'] == 'event already end') {
-				$notify('🍤 蝦幣寶箱活動已過期 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
-				$done();
-			} else {
-				$notify('🍤 未知錯誤 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
-				$done();
-			}
-			$done();
-		} else {
-			$notify("🍤 蝦皮 Cookie 已過期或網路錯誤‼️", "", "請重新更新 Cookie 重試 🔓");
-			$done();
-		}
+		// if (response.statusCode === 200) {
+		// 	const obj = JSON.parse(response.body);
+		// 	console.log(obj);
+		// 	if (obj['msg'] == 'no chance') {
+		// 		$notify('🍤 今日已領過蝦幣寶箱', '', '每日只能領一次‼️');
+		// 		$done();
+		// 	} else if (obj['msg'] == 'success') {
+		// 		const packagename = obj['data']['package_name'];
+		// 		$notify('🍤 蝦幣寶箱領取成功 ✅', '', '獲得 👉 ' + packagename + ' 💎');
+		// 		$done();
+		// 	} else if (obj['msg'] == 'expired' || obj['msg'] == 'event already end') {
+		// 		$notify('🍤 蝦幣寶箱活動已過期 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
+		// 		$done();
+		// 	} else {
+		// 		$notify('🍤 未知錯誤 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
+		// 		$done();
+		// 	}
+		// 	$done();
+		// } else {
+		// 	$notify("🍤 蝦皮 Cookie 已過期或網路錯誤‼️", "", "請重新更新 Cookie 重試 🔓");
+		// 	$done();
+		// }
 	}, reason => {
 		$notify("🍤 蝦皮簽到", "", "連線錯誤‼️")
 		$done();
