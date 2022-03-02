@@ -34,7 +34,9 @@ function luckyDrawGetId() {
 				luckyRrawRequest.url = 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/' + eventUrl;
 				console.log('🍤 蝦幣寶箱新網址獲取成功： ' + luckyRrawRequest.url);
 				// 開寶箱
+				console.log("task fetch");
 				$task.fetch(luckyRrawRequest).then(response => {
+					console.log("task fetch......")
 					console.log(response.statusCode);
 					if (response.statusCode == 200) {
 						const obj = JSON.parse(response.body);
@@ -58,8 +60,6 @@ function luckyDrawGetId() {
 					$notify("🍤 蝦幣寶箱網址查詢", "", "連線錯誤‼️");
 					$done();
 				});
-				
-
 			}
 		} else {
 			$notify('🍤 蝦皮 Cookie 已過期‼️', '', '請重新抓取 🔓');
