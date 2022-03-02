@@ -11,8 +11,7 @@ const waterRequest = {
 
 
 
-$task.fetch(shopeeUrl).then(response => {
-
+$task.fetch(waterRequest).then(response => {
   if (response.status === 200) {
     try {
       const obj = JSON.parse(data);
