@@ -10,7 +10,7 @@ const getSignInBundleListRequest = {
 
 let claimSignInBundleRequest = {
   url: 'https://games.shopee.tw/farm/api/sign_in_bundle/claim?t=' + new Date().getTime(),
-  metohs:'POST',
+  method:'POST',
   headers: {
     'Cookie': $prefs.valueForKey('CookieSP') + ';SPC_EC=' + $prefs.valueForKey('SPC_EC') + ';',
     'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
