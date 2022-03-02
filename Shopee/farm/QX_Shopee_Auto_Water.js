@@ -12,7 +12,7 @@ const waterRequest = {
 
 
 $task.fetch(waterRequest).then(response => {
-  if (response.status === 200) {
+  if (response.statusCode === 200) {
     try {
       const obj = JSON.parse(data);
       if (obj.msg === 'success') {

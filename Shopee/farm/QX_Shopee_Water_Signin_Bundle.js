@@ -25,7 +25,7 @@ let claimSignInBundleRequest = {
 function getSignInBundleList() {
 
   $task.fetch(getSignInBundleListRequest).then(response => {
-    if (response.status === 200) {
+    if (response.statusCode === 200) {
       try {
         const obj = JSON.parse(data);
         const day = obj.data.day;

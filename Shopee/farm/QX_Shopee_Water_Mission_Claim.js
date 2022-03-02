@@ -28,7 +28,7 @@ let claims = [];
 
 function getRewardList() {
   $task.fetch(getListRequest).then(response => {
-    if (response.status === 200) {
+    if (response.statusCode === 200) {
       try {
         const obj = JSON.parse(data);
         const taskGroups = obj.data.userTasks;
@@ -86,7 +86,7 @@ function claimReward(index) {
   claimRewardRequest.body.taskId = taskId;
 
   $task.fetch(claimRewardRequest).then(response => {
-    if (response.status === 200) {
+    if (response.statusCode === 200) {
       try {
         const obj = JSON.parse(data);
         if (obj.msg === 'success') {
