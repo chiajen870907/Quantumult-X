@@ -6,9 +6,9 @@
         "0 8 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/QX_Shopee_Checkin.js, tag=QX_簽到, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
         "0 8 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/QX_Shopee_Luckydraw.js, tag=QX_抽寶箱, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
         
-        "10 0,4,8 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/farm/QX_水滴打卡任務.js, tag=QX_Shopee_Water_Checkin, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
-        "8 0 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/farm/QX_水滴任務.js, tag=QX_Shopee_Water_Mission, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
-        "4 */3 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/farm/QX_自動澆水.js, tag=QX_Shopee_Auto_Water, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
+        "10 0,4,8 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/farm/QX_Shopee_Water_Checkin.js, tag=QX_水滴打卡任務, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
+        "8 0 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/farm/QX_Shopee_Water_Mission.js, tag=QX_水滴任務, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
+        "4 */3 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/farm/QX_Shopee_Auto_Water.js, tag=QX_自動澆水, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
         "58 23 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/farm/QX_Shopee_Water_Signin_Bundle.js, tag=QX_Shopee_Water_Signin_Bundle, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg",
         "58 23 * * * https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/farm/QX_Shopee_Water_Mission_Claim.js, tag=QX_Shopee_Water_Mission_Claim, enabled=false, img-url=https://raw.githubusercontent.com/chiajen870907/Quantumult-X/main/Shopee/logo.jpg"
 
