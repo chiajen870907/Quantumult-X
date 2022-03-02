@@ -76,10 +76,10 @@ function luckyDrawGetId() {
 
 function luckyDraw() {
 	console.log("luckyDraw()");
-	console.log(JSON.parse(luckyRrawRequest));
+	console.log(luckyRrawRequest);
 	$task.fetch(luckyRrawRequest).then(response => {
 		console.log("*****************************************************")
-		console.log(response);
+		console.log(response.statusCode);
 		if (response.statusCode === 200) {
 			const obj = JSON.parse(response.body);
 			console.log(obj);
