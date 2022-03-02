@@ -46,7 +46,7 @@ function waterMission(index) {
   $task.fetch(request).then(response => {
     if (response.statusCode === 200) {
       try {
-        const obj = JSON.parse(data);
+        const obj = JSON.parse(response.body);
         if (obj.msg === 'success') {
           console.log(missions[index].missionName + '成功 ✅');
           $notify('🍤 蝦皮水滴任務', 

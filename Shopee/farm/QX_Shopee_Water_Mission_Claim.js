@@ -30,7 +30,7 @@ function getRewardList() {
   $task.fetch(getListRequest).then(response => {
     if (response.statusCode === 200) {
       try {
-        const obj = JSON.parse(data);
+        const obj = JSON.parse(response.body);
         const taskGroups = obj.data.userTasks;
         for (let i = 0; i < taskGroups.length; i++) {
           const taskList = taskGroups[i];
@@ -88,7 +88,7 @@ function claimReward(index) {
   $task.fetch(claimRewardRequest).then(response => {
     if (response.statusCode === 200) {
       try {
-        const obj = JSON.parse(data);
+        const obj = JSON.parse(response.body);
         if (obj.msg === 'success') {
           console.log('🍤 蝦蝦果園任務 ' + taskName + ' 領取成功 ✅');
           $notify('🍤 蝦蝦果園任務', taskName, '自動領取水滴成功',);

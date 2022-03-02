@@ -27,7 +27,7 @@ function getSignInBundleList() {
   $task.fetch(getSignInBundleListRequest).then(response => {
     if (response.statusCode === 200) {
       try {
-        const obj = JSON.parse(data);
+        const obj = JSON.parse(response.body);
         const day = obj.data.day;
         const claimed = obj.data.signInBundlePrizes[day - 1].claimed;
         if (claimed) {
@@ -67,7 +67,7 @@ function claimSignInBundle() {
   $task.fetch(claimSignInBundleRequest).then(response => {
     if (response.statusCode === 200) {
       try {
-        const obj = JSON.parse(data);
+        const obj = JSON.parse(response.body);
         if (obj.msg === 'success') {
           const day = obj.data.day;
           const prize = obj.data.signInBundlePrizes[day - 1];
