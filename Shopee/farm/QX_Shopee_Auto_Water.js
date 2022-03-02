@@ -9,6 +9,8 @@ const waterRequest = {
   body: JSON.stringify($prefs.valueForKey('ShopeeCrop')),
 };
 
+console.log($prefs.valueForKey('ShopeeCrop'));
+
 
 
 $task.fetch(waterRequest).then(response => {
