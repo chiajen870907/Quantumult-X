@@ -33,7 +33,6 @@ function luckyDrawGetId() {
 				const eventUrl = obj['data']['basic']['event_code'];
 				luckyRrawRequest.url = 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/' + eventUrl;
 				console.log('🍤 蝦幣寶箱新網址獲取成功： ' + luckyRrawRequest.url);
-				
 				// 開寶箱
 				luckyDraw();
 				
@@ -53,8 +52,10 @@ function luckyDrawGetId() {
 function luckyDraw() {
 	console.log("luckyDraw()");
 	$task.fetch(luckyRrawRequest).then(response => {
+		console.log(response.statusCode);
 		if (response.statusCode == 200) {
 			const obj = JSON.parse(response.body);
+			console.log(obj);
 			if (obj['msg'] == 'no chance') {
 				$notify('🍤 今日已領過蝦幣寶箱', '', '每日只能領一次‼️');
 			} else if (obj['msg'] == 'success') {
