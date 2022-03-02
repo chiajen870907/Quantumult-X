@@ -25,7 +25,6 @@ let luckyRrawRequest = {
 
 
 $task.fetch(luckyRrawGetIdRequest).then(response => {
-	console.log(response.statusCode);
 	if (response.statusCode == 200) {
 		const obj = JSON.parse(response.body);
 		if (obj['msg'] !== 'success') {
@@ -42,22 +41,19 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 				if (response.statusCode == 200) {
 					if (obj['msg'] == 'no chance') {
 						$notify('🍤 今日已領過蝦幣寶箱', '', '每日只能領一次‼️');
-						$done();
 					} else if (obj['msg'] == 'success') {
 						const packagename = obj['data']['package_name'];
 						$notify('🍤 蝦幣寶箱領取成功 ✅', '', '獲得 👉 ' + packagename + ' 💎');
-						$done();
 					} else if (obj['msg'] == 'expired' || obj['msg'] == 'event already end') {
 						$notify('🍤 蝦幣寶箱活動已過期 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
-						$done();
 					}else{
 						$notify('🍤 未知錯誤 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
-						$done();
 					}
 				}else {
 					$notify('🍤 蝦皮 Cookie 已過期‼️', '', '請重新抓取 🔓');
-					$done();
 				}
+				$done();
+
 			}, reason => {
 				$notify("🍤 蝦幣寶箱網址查詢", "", "連線錯誤‼️");
 				$done();
@@ -65,8 +61,9 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 		}
 	}else{
 		$notify('🍤 蝦皮 Cookie 已過期‼️', '', '請重新抓取 🔓');
-		$done();
 	}	
+	$done();
+
 }, reason => {
     $notify("🍤 蝦幣寶箱網址查詢", "", "連線錯誤‼️")
     $done();
