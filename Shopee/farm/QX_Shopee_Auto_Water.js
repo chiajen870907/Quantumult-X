@@ -6,10 +6,11 @@ const waterRequest = {
     'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify($prefs.valueForKey('ShopeeCrop')),
+  body: $prefs.valueForKey('ShopeeCrop'),
 };
 
 console.log($prefs.valueForKey('ShopeeCrop'));
+console.log(JSON.stringify($prefs.valueForKey('ShopeeCrop')));
 
 
 

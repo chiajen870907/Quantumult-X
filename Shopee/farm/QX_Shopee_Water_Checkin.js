@@ -11,7 +11,7 @@ const request = {
   body: JSON.stringify({ actionKey: 'act_Check_In' }),
 };
 
-$task.fetch(shopeewUrl).then(response => {
+$task.fetch(request).then(response => {
   if (response.statusCode == 200) {
     let obj = JSON.parse(response.body);
     if (obj["msg"] == "success") {
