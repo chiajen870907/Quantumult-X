@@ -1,4 +1,4 @@
-console.log("flag");
+
 const luckyRrawGetIdRequest = {
     url: 'https://games.shopee.tw/gameplatform/api/v1/game/activity/e37b7dec5976a29c/settings?appid=E9VFyxwmtgjnCR8uhL&basic=false',
     method: "GET",
@@ -7,7 +7,7 @@ const luckyRrawGetIdRequest = {
         'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
     },
 };
-console.log("flag1");
+
 let luckyRrawRequest = {
     url: 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/15d3b075799e64b2',
 	method: "POST",
@@ -21,13 +21,13 @@ let luckyRrawRequest = {
         activity_code: 'e37b7dec5976a29c',
         source: 0,
     }),
-
 };
-console.log("flag2");
+
+
 $task.fetch(luckyRrawGetIdRequest).then(response => {
-	console.log(response);
+	console.log(response.statusCode);
 	if (response.statusCode == 200) {
-		const obj = JSON.parse(data);
+		const obj = JSON.parse(response.body);
 		if (obj['msg'] !== 'success') {
 			$notify('🍤 蝦幣寶箱網址查詢', '', '未知錯誤，請稍候再手動嘗試‼️');
 			$done();
@@ -35,10 +35,11 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 			const eventUrl = obj['data']['basic']['event_code'];
 			luckyRrawRequest.url = 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/' + eventUrl;
 			console.log('🍤 蝦幣寶箱新網址獲取成功： ' + luckyRrawRequest.url);
+			
 			// 開寶箱
 			$task.fetch(luckyRrawRequest).then(response => {
+				console.log(JSON.stringify(response));
 				if (response.statusCode == 200) {
-					const obj = JSON.parse(data);
 					if (obj['msg'] == 'no chance') {
 						$notify('🍤 今日已領過蝦幣寶箱', '', '每日只能領一次‼️');
 						$done();
@@ -49,22 +50,23 @@ $task.fetch(luckyRrawGetIdRequest).then(response => {
 					} else if (obj['msg'] == 'expired' || obj['msg'] == 'event already end') {
 						$notify('🍤 蝦幣寶箱活動已過期 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
 						$done();
+					}else{
+						$notify('🍤 未知錯誤 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
+						$done();
 					}
-				} else {
+				}else {
 					$notify('🍤 蝦皮 Cookie 已過期‼️', '', '請重新抓取 🔓');
 					$done();
 				}
 			}, reason => {
-				$notify('🍤 蝦幣寶箱', '', '連線錯誤‼️'));
+				$notify("🍤 蝦幣寶箱網址查詢", "", "連線錯誤‼️");
 				$done();
 			});
-		} 
+		}
 	}else{
 		$notify('🍤 蝦皮 Cookie 已過期‼️', '', '請重新抓取 🔓');
 		$done();
-	}
-
-	
+	}	
 }, reason => {
     $notify("🍤 蝦幣寶箱網址查詢", "", "連線錯誤‼️")
     $done();
