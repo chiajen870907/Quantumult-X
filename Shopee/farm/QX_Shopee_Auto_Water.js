@@ -8,7 +8,7 @@ const waterRequest = {
   },
   body: $prefs.valueForKey('ShopeeCrop'),
 };
-
+console.log(waterRequest);
 console.log($prefs.valueForKey('ShopeeCrop'));
 console.log(JSON.stringify($prefs.valueForKey('ShopeeCrop')));
 
