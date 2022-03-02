@@ -10,12 +10,9 @@ const waterRequest = {
 };
 
 $task.fetch(waterRequest).then(response => {
-  console.log('******************************');
-  console.log(JSON.parse(response.body));
   if (response.statusCode === 200) {
     try {
       const obj = JSON.parse(response.body);
-      console.log(obj.msg);
       if (obj.msg === 'success') {
         const useNumber = obj.data.useNumber;
         const state = obj.data.crop.state;

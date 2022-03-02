@@ -1,5 +1,6 @@
 let request = {
   url: '',
+  method:'POST',
   headers: {
     'Cookie': $prefs.valueForKey('CookieSP') + ';SPC_EC=' + $prefs.valueForKey('SPC_EC') + ';',
     'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
