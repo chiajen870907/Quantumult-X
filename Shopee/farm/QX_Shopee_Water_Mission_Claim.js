@@ -1,11 +1,11 @@
 const getListRequest = {
   url: 'https://games.shopee.tw/farm/api/task/listV2?t=' + new Date().getTime(),
   method: "GET",
-  headers: JSON.stringify({
+  headers: {
     'Cookie': $prefs.valueForKey('CookieSP') + ';SPC_EC=' + $prefs.valueForKey('SPC_EC') + ';',
     'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
     'Content-Type': 'application/json',
-  }),
+  },
 };
 
 let claimRewardRequest = {
