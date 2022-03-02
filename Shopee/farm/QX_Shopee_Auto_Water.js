@@ -15,7 +15,7 @@ console.log(JSON.stringify($prefs.valueForKey('ShopeeCrop')));
 
 
 $task.fetch(waterRequest).then(response => {
-  console.log(response.json())
+  console.log(response.body)
   if (response.statusCode === 200) {
     try {
       const obj = JSON.parse(response);
