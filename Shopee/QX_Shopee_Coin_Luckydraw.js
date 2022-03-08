@@ -1,29 +1,36 @@
-const luckyRrawGetIdRequest = {
-	url: 'https://games.shopee.tw/gameplatform/api/v1/game/activity/e37b7dec5976a29c/settings?appid=E9VFyxwmtgjnCR8uhL&basic=false',
-	method: "GET",
-	headers: {
-		'Cookie': $prefs.valueForKey('CookieSP') + ';SPC_EC=' + $prefs.valueForKey('SPC_EC') + ';',
-		'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
-	},
+const shopeeCookie = $$prefs.valueForKey('CookieSP') + ';SPC_EC=' + $$prefs.valueForKey('SPC_EC') + ';';
+const shopeeCSRFToken = $$prefs.valueForKey('CSRFTokenSP');
+
+const shopeeHeaders = {
+  'Cookie': shopeeCookie,
+  'X-CSRFToken': shopeeCSRFToken,
 };
 
-let luckyRrawRequest = {
-	url: 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/15d3b075799e64b2',
-	method: "POST",
-	headers: {
-		'Cookie': $prefs.valueForKey('CookieSP') + ';SPC_EC=' + $prefs.valueForKey('SPC_EC') + ';',
-		'X-CSRFToken': $prefs.valueForKey('CSRFTokenSP'),
-	},
-	body: JSON.stringify({
-		request_id: (Math.random() * 10 ** 20).toFixed(0).substring(0, 16),
-		app_id: 'E9VFyxwmtgjnCR8uhL',
-		activity_code: 'e37b7dec5976a29c',
-		source: 0
-	}),
+const luckyDrawBasicUrl = 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/';
+
+const coinLuckyRrawGetIdRequest = {
+  url: 'https://games.shopee.tw/gameplatform/api/v1/game/activity/e37b7dec5976a29c/settings?appid=E9VFyxwmtgjnCR8uhL&basic=false',
+  method: 'GET', 
+  headers: shopeeHeaders,
 };
+
+let coinLuckyRrawRequest = {
+  url: '',
+  method:'POST',
+  headers: shopeeHeaders,
+  body: JSON.stringify({
+    request_id: (Math.random() * 10 ** 20).toFixed(0).substring(0, 16),
+    app_id: 'E9VFyxwmtgjnCR8uhL',
+    activity_code: 'e37b7dec5976a29c',
+    source: 0,
+  }),
+};
+
+
+
 
 function luckyDrawGetId() {
-	$task.fetch(luckyRrawGetIdRequest).then(response => {
+	$task.fetch(coinLuckyRrawRequest).then(response => {
 		if (response.statusCode === 200) {
 			const obj = JSON.parse(response.body);
 			if (obj['msg'] !== 'success') {
@@ -31,8 +38,8 @@ function luckyDrawGetId() {
 				$done();
 			} else {
 				const eventUrl = obj['data']['basic']['event_code'];
-				luckyRrawRequest.url = 'https://games.shopee.tw/luckydraw/api/v1/lucky/event/' + eventUrl;
-				console.log('🍤 蝦幣寶箱新網址獲取成功： ' + luckyRrawRequest.url);
+				coinLuckyRrawRequest.url= luckyDrawBasicUrl + eventUrl;
+				console.log('🍤 蝦幣寶箱新網址獲取成功： ' + coinLuckyRrawRequest.url);
 				// 開寶箱
 				luckyDraw();
 				// console.log("task fetch");
@@ -73,10 +80,11 @@ function luckyDrawGetId() {
 		$done();
 	});
 }
+ 
 
 function luckyDraw() {
-	console.log("luckyDraw()");
-	console.log(JSON.stringify(luckyRrawRequest));
+	// console.log("luckyDraw()");
+	// console.log(JSON.stringify(luckyRrawRequest));
 
 	$task.fetch(luckyRrawRequest).then(response => {
 		console.log("*****************************************************")
