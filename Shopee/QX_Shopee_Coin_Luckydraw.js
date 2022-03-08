@@ -30,7 +30,7 @@ let coinLuckyRrawRequest = {
 
 
 function luckyDrawGetId() {
-	$task.fetch(coinLuckyRrawRequest).then(response => {
+	$task.fetch(coinLuckyRrawGetIdRequest).then(response => {
 		if (response.statusCode === 200) {
 			const obj = JSON.parse(response.body);
 			if (obj['msg'] !== 'success') {
@@ -42,32 +42,6 @@ function luckyDrawGetId() {
 				console.log('🍤 蝦幣寶箱新網址獲取成功： ' + coinLuckyRrawRequest.url);
 				// 開寶箱
 				luckyDraw();
-				// console.log("task fetch");
-				// $task.fetch(luckyRrawRequest).then(response => {
-				// 	console.log("task fetch......")
-				// 	console.log(response.statusCode);
-				// 	if (response.statusCode == 200) {
-				// 		const obj = JSON.parse(response.body);
-				// 		console.log(obj);
-				// 		if (obj['msg'] == 'no chance') {
-				// 			$notify('🍤 今日已領過蝦幣寶箱', '', '每日只能領一次‼️');
-				// 		} else if (obj['msg'] == 'success') {
-				// 			const packagename = obj['data']['package_name'];
-				// 			$notify('🍤 蝦幣寶箱領取成功 ✅', '', '獲得 👉 ' + packagename + ' 💎');
-				// 		} else if (obj['msg'] == 'expired' || obj['msg'] == 'event already end') {
-				// 			$notify('🍤 蝦幣寶箱活動已過期 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
-				// 		} else {
-				// 			$notify('🍤 未知錯誤 ❌', '', '請嘗試更新模組或腳本，或等待作者更新‼️');
-				// 		}
-				// 	} else {
-				// 		$notify('🍤 蝦皮 Cookie 已過期‼️', '', '請重新抓取 🔓');
-				// 	}
-				// 	$done();
-			
-				// }, reason => {
-				// 	$notify("🍤 蝦幣寶箱網址查詢", "", "連線錯誤‼️");
-				// 	$done();
-				// });
 			}
 		} else {
 			$notify('🍤 蝦皮 Cookie 已過期‼️', '', '請重新抓取 🔓');
@@ -85,8 +59,8 @@ function luckyDrawGetId() {
 function luckyDraw() {
 	// console.log("luckyDraw()");
 	// console.log(JSON.stringify(luckyRrawRequest));
-
-	$task.fetch(luckyRrawRequest).then(response => {
+	
+	$task.fetch(coinLuckyRrawRequest).then(response => {
 		console.log("*****************************************************")
 		console.log(response.statusCode);
 		console.log(JSON.stringify(response));
