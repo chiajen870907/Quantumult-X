@@ -1,5 +1,5 @@
-const shopeeCookie = $$prefs.valueForKey('CookieSP') + ';SPC_EC=' + $$prefs.valueForKey('SPC_EC') + ';';
-const shopeeCSRFToken = $$prefs.valueForKey('CSRFTokenSP');
+const shopeeCookie = $prefs.valueForKey('CookieSP') + ';SPC_EC=' + $prefs.valueForKey('SPC_EC') + ';';
+const shopeeCSRFToken = $prefs.valueForKey('CSRFTokenSP');
 
 const shopeeHeaders = {
   'Cookie': shopeeCookie,
@@ -89,6 +89,7 @@ function luckyDraw() {
 	$task.fetch(luckyRrawRequest).then(response => {
 		console.log("*****************************************************")
 		console.log(response.statusCode);
+		console.log(JSON.stringify(response));
 		// if (response.statusCode === 200) {
 		// 	const obj = JSON.parse(response.body);
 		// 	console.log(obj);
