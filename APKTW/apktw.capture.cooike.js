@@ -69,7 +69,9 @@
 
   // 儲存回 prefs（BoxJS 可讀）
   $prefs.setValueForKey(JSON.stringify(store), key);
+  $notify('!!!!')
   $notify('QX Cookie', `Saved ${Object.keys(store).length} cookies for ${host} \n ${JSON.stringify(store, null, 2)}`, '');
-  
+  console.log(`QX Cookie: Saved ${Object.keys(store).length} cookies for ${host}`);
+  console.log(JSON.stringify(store, null, 2));
   $done({headers});
 })();
