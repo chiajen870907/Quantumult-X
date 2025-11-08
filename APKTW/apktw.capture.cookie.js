@@ -6,6 +6,7 @@
   const key = `qx_cookie_${host}`;
 
   // 收集所有 Set-Cookie header 值（支援大小寫）
+  console.log('Response Headers:', headers);
   const cookieHeaders = [];
   Object.keys(headers).forEach(k => {
     if (/^set-cookie$/i.test(k)) {
@@ -69,7 +70,6 @@
 
   // 儲存回 prefs（BoxJS 可讀）
   $prefs.setValueForKey(JSON.stringify(store), key);
-  $notify('!!!!')
   $notify('QX Cookie', `Saved ${Object.keys(store).length} cookies for ${host} \n ${JSON.stringify(store, null, 2)}`, '');
   console.log(`QX Cookie: Saved ${Object.keys(store).length} cookies for ${host}`);
   console.log(JSON.stringify(store, null, 2));
